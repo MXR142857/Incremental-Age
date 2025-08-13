@@ -1,5 +1,8 @@
 
 function HTMLupdate() {
+    //tab
+    e("tabbImc").style.display=player.unlocked.cul?"inline":"none"
+    e("tabbAuto").style.display=player.unlocked.auto?"inline":"none"
     //
     e("age").innerHTML = formatTime(player.age)
     e("agePerSec").innerHTML = formatTime(getAgePerSec())
@@ -15,6 +18,9 @@ function HTMLupdate() {
     e("cr").innerHTML = getCrTitle()
     if(nextEffCrId()==Infinity) e("crDisc").innerHTML = ""
     else e("crDisc").innerHTML = "当达到" + formatCR(getCrEffNeed(nextEffCrId())) + "时，" + getCrEffDisc(nextEffCrId())
+    
+    e("reniReset").style.display=player.unlocked.reni?"inline":"none"
+    e("reni").style.display=player.unlocked.reni?"inline":"none"
     e("crNeed").innerHTML = "需要：" + format(getCrNeed()) + "修为"
     e("reniReset").innerHTML="重置之前所有内容，获得"+format(getRPGain())+"轮回点（RP）"
     e("RP").innerHTML="轮回点："+format(player.RP)
@@ -58,7 +64,6 @@ function changeTab(showingTab) {
                 j = 0
             }
             if (f) {
-                console.log("tab" + tabs[i][j])
                 if (showingTab == tabs[i][j]) {
                     player.curTab[i] = tabs[i][j]
                     e("tab" + tabs[i][j]).style.display = "block"
@@ -146,7 +151,9 @@ function gameloop() {
     if (isLongPressing(e("buyCR"))) crReset()
     player.RPo = player.RPo.add(getRPoPerSec().mul(diff))
     calcCulProg()
-    
+    if(!player.unlocked.cul&&hasAch(5)) player.unlocked.cul=true
+    if(!player.unlocked.auto&&hasAch(7)) player.unlocked.auto=true
+    if(!player.unlocked.reni&&hasCrEff(15)) player.unlocked.reni=true
     HTMLupdate()
     save("IA")
 }

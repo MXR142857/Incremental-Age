@@ -9,7 +9,7 @@ var ach={
         id:2,
         title:"第二个因子",
         discription() { return "升级一次助推器"},
-        need(){ return getABLevel(2).gte(1)},
+        need(){ return getABLevel(2).gt(1)},
     },
     3:{
         id:3,

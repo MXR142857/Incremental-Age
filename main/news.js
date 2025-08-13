@@ -172,6 +172,7 @@ const newsData = {
     m171: "别的游戏兑换码：VIP666 VIP777 VIP888 AD兑换码：27|1753934392.9297|277289cfbd4a621342cd890eb721206cc26601064c04e12524963fb6398dea32",
     m172: "预言石上血痕现，星河倒悬月无光。莫问何处寻生路，轮回尽头万物殇。",
     m173: "DS写增量游戏，你将见到：渐变背景、功能分栏、无法开始、按钮报废、公式古老、机制凑数",
+    m178: "不要再洛必达了！洛必达是伯努利研制的新型鸦片！伯努利往你的试卷里安装大炮，当你洛必达时大炮就会被引燃，真是细思极恐！洛必达研发的机器人会自动生成复杂求极限题目，不费任何人力就能让你的孩子上瘾。现在的孩子竟然用洛必达法则求极限，可见伯努利已经毒害了中国青少年的心灵，你的孩子已经失去了求极限能力！洛必达多有暴力元素，引导孩子走向暴力，残害家人和朋友！让你的孩子有自残倾向！其实这些都是洛必达和伯努利的诡计！如果现在的青少年做的都是这种题，以后我们的国家怎么会有栋梁之材？坚决抵制洛必达，坚决抵制文化入侵！如果你认同我的看法，请转发出去，转告你的亲友，不要再洛了，抵制洛必达法则！！！！",
 };
 /*"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --host-rules="MAP github.com octocaptcha.com, MAP github.githubassets.com yelp.com, MAP *.githubusercontent.com githubusercontent.com" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113, MAP yelp.com 199.232.240.116, MAP githubusercontent.com 199.232.176.133" */
 var space = "&nbsp&nbsp&nbsp", ran = 0, newslen = Object.keys(newsData).length
@@ -184,7 +185,6 @@ async function initNews() {
     // 添加新闻项
     ran = Math.floor(Math.random() * newslen) % newslen + 1
     newsHTML = `<div class="news-item">${space + newsData['m' + ran]}</div>`;
-    newsHTML='<codemarkdown>frac{1/2)3423</code>'
     newsContent.innerHTML = newsHTML;
 
     // 计算动画持续时间（保持恒定速度）

@@ -12,7 +12,7 @@ function loadAllData() {
     loader("cultivation", n(0));loader("ctAll",n(0))
     loader("cr", n(1)); loader("crTime", n(0))
     loader(["curTab", 0], "Age");loader(["curTab", 1], "Spd");loader(["curTab", 2], "Qj")
-    loader(["unlocked","cul"],false);loader(["unlocked","reni"],false)
+    loader(["unlocked","cul"],false);loader(["unlocked","reni"],false);loader(["unlocked","auto"],false)
     loader("RP",n(0));loader("RPo",n(0))
     for(var i=1;i<=3;i++) loader(["rb",i],n(0))
     for(var i=1;i<=3;i++) loader(["autoAb",i],false)
@@ -51,7 +51,6 @@ function setup() {
         </span>`
     }
     e("achBox").innerHTML = tmpStr;
-    console.log(player.curTab)
     for (i in player.curTab) {
         changeTab(player.curTab[i])
     }
