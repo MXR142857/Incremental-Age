@@ -189,7 +189,7 @@ var crEff = {
     },
     6: {
         need: n(8),
-        discription() { return "练气四层的效果翻倍。" },
+        discription() { return "练气五层的效果翻倍。" },
     },
     7: {
         need: n(9),
