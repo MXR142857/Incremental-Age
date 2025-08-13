@@ -297,7 +297,7 @@ function getRPGain() {
     return n(0)
 }
 function getRPoPerSec() {
-    var x = player.RP.pow(getRbEffect(2)).div(100)
+    var x = player.RP.pow(getRbEffect(2)).div(90)
     if(hasCrEff(18)) x = x.mul(player.age.root(75))
     else x = x.mul(player.age.root(100))
     return x
@@ -315,9 +315,9 @@ function reniReset() {
     player.cr = n(1)
 }
 function getRpoEffect() {
-    var x=player.RPo.div(10)
+    var x=player.RPo.div(3)
     if(hasCrEff(19)) x=x.pow(2).add(1)
-    else  x=x.pow(1.5).add(1)
+    else  x=x.pow(1.6).add(1)
     if(x.gte("1e30")) x=x.div("1e30").pow(0.75).mul("1e30")
     return x
 }
