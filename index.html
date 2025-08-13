@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <title>Incremental Age</title>
     <!-- <link rel='shortcut icon' type='image/x-icon' href='icon.png'> -->
@@ -25,7 +26,7 @@
     <div style="font-size: 12px;padding-top: 5px;">+ <span id="agePerSec" style="font-size: 12px;"></span>/s</div>
     <div class="childMiddle">
         <button class="tabButton" id="tabbAge" onclick="changeTab('Age')">年龄</button>
-        <button class="tabButton" id="tabbAuto" onclick="changeTab('Auto')">自动化</button>
+        <button class="tabButton hide" id="tabbAuto" onclick="changeTab('Auto')">自动化</button>
         <button class="tabButton" id="tabbAch" onclick="changeTab('Ach')">成就</button>
         <button class="tabButton" id="tabbSta" onclick="changeTab('Sta')">统计</button>
         <button class="tabButton" id="tabbSet" onclick="changeTab('Set')">设置</button>
@@ -33,7 +34,7 @@
     <div id="tabAge">
         <div class="childMiddle">
             <button class="tabButton" id="tabbSpd" onclick="changeTab('Spd')">速率</button>
-            <button class="tabButton" id="tabbImc" onclick="changeTab('Imc')">修仙</button>
+            <button class="tabButton hide" id="tabbImc" onclick="changeTab('Imc')">修仙</button>
         </div>
         <div id="tabSpd">
             <div class="box" id="ab1" style="font-size: 12px;margin-top: 5px;"></div>
@@ -42,25 +43,33 @@
         </div>
         <div id="tabImc">
             <div id="cultivation"></div>
-            <button class="button2" id="startImc" onclick="startCul()" style="margin:auto;justify-content:center">开始修炼</button>
+            <button class="button2" id="startImc" onclick="startCul()"
+                style="margin:auto;justify-content:center">开始修炼</button>
             <div id="getCultivationText"></div>
             <div class="childMiddle">
-                <button class="button3" id="buyCR" onclick="crReset()"><span id="cr"></span><span id="crDisc" style="font-size:14px"></span><span id="crNeed" style="font-size:14px"></span></button>
-                <button class="button3" id="reniReset" onclick="reniReset()"><span id="cr">重置之前所有内容以轮回，获得0轮回点</button>
+                <button class="button3" id="buyCR" onclick="crReset()"><span id="cr"></span><span id="crDisc"
+                        style="font-size:14px"></span><span id="crNeed" style="font-size:14px"></span></button>
+                <button class="button3 hide" id="reniReset" onclick="reniReset()"><span
+                        id="cr">重置之前所有内容以轮回，获得0轮回点</button>
             </div>
-            <div id="RP"></div>
-            <div id="RPo"></div>
-            <div id="RPoEff"></div>
-            <div class="childMiddle" id="rb">
-                
+            <div class="hide" id="reni">
+                <div id="RP"></div>
+                <div id="RPo"></div>
+                <div id="RPoEff"></div>
+                <div class="childMiddle" id="rb">
+
+                </div>
             </div>
         </div>
     </div>
     <div id="tabAuto">
         <div class="autoBox" id="autoAb">
-            <div class="autoSmallBox"><span>时光龟</span><input type="checkbox" id="autoAB1" onclick="changeAutoAb(this,1)"></div>
-            <div class="autoSmallBox"><span>助推器</span><input type="checkbox" id="autoAB2" onclick="changeAutoAb(this,2)"></div>
-            <div class="autoSmallBox"><span>次方引擎</span><input type="checkbox" id="autoAB3" onclick="changeAutoAb(this,3)"></div>
+            <div class="autoSmallBox"><span>时光龟</span><input type="checkbox" id="autoAB1"
+                    onclick="changeAutoAb(this,1)"></div>
+            <div class="autoSmallBox"><span>助推器</span><input type="checkbox" id="autoAB2"
+                    onclick="changeAutoAb(this,2)"></div>
+            <div class="autoSmallBox"><span>次方引擎</span><input type="checkbox" id="autoAB3"
+                    onclick="changeAutoAb(this,3)"></div>
         </div>
     </div>
     <div id="tabAch">

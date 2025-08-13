@@ -5,6 +5,9 @@
     /*background-color:rgb(80,80,80);*/
     /* transform: translateX(-2px); */
 }
+.hide{
+    display:none;
+}
 .box{
     margin: auto;
     border: 3px solid #ffffff;
