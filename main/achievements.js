@@ -28,7 +28,7 @@ var ach={
         id:5,
         title:"奇怪的知识增加了",
         discription() { return "年龄达到80岁。奖励：解锁修仙"},
-        need(){ return player.age.gte(n(80).mul(year.mul(80)))},
+        need(){ return player.age.gte(year.mul(80))},
     },
     6:{
         id:6,
@@ -70,7 +70,13 @@ var ach={
         id:12,
         title:"你能恰好达成12个成就吗",
         discription() { return "达成12个成就"},
-        need(){ return Object.keys(player.ach).length>=12},
+        need(){ 
+            var s=0
+            for(var i=1;i<=Object.keys(player.ach).length;i++){
+                if(hasAch(i)) s++
+            }
+            return s>=12
+        }
     },
     13:{
         id:13,
