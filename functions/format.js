@@ -48,16 +48,16 @@ function formatTimen(x){
 
 function stadl(){
     var x=player.age
-    if(x.lt(6.4)) return `你的年龄足够眨眼${x.div(0.4)}次`
-    if(x.lt(2400)) return `你的年龄足够呼吸${x.div(6.4)}次`
-    if(x.lt(28800)) return `你的年龄足够上${x.div(2400)}节课`
-    if(x.lt(666666)) return `你的年龄足够睡${x.div(28800)}觉`
-    if(x.lt(283824000)) return `你的年龄足够在《升镐UYPickaxe》中在各量产器三级无词缀时合成${x.div(666666)}个精神支柱`
-    if(x.lt(1.5768e11)) return `你的年龄足够进行${x.div(283824000)}次九年义务教育`
-    if(x.lt(6.3072e15)) return `你的年龄足够单位质量碳十四减半${x.div(1.5768e11)}次`
-    if(x.lt(5.574e20)) return `你的年龄足够细胞色素c的氨基酸序列发生1%的改变${x.div(6.3072e15)}次`
-    if(x.lt(5.214e46)) return `假如一个人每秒数3个，你的年龄足够他数完${x.div(5.574e20)}个地球的水分子数`
-    if(x.lt(5.214e71)) return `假如一个人每秒数3个，你的年龄足够他数完${x.div(5.574e20)}个宇宙的水分子数`
+    if(x.lt(6.4)) return `你的年龄足够眨眼${format(x.div(0.4))}次`
+    if(x.lt(2400)) return `你的年龄足够呼吸${format(x.div(6.4))}次`
+    if(x.lt(28800)) return `你的年龄足够上${format(x.div(2400))}节课`
+    if(x.lt(283824000)) return `你的年龄足够睡${format(x.div(28800))}觉`
+    //if(x.lt(283824000)) return `你的年龄足够在《升镐UYPickaxe》中在各量产器三级无词缀时合成${format(x.div(666666))}个精神支柱`
+    if(x.lt(1.5768e11)) return `你的年龄足够进行${format(x.div(283824000))}次九年义务教育`
+    if(x.lt(6.3072e15)) return `你的年龄足够单位质量碳十四减半${format(x.div(1.5768e11))}次`
+    if(x.lt(5.574e20)) return `你的年龄足够细胞色素c的氨基酸序列发生1%的改变${format(x.div(6.3072e15))}次`
+    if(x.lt(5.214e46)) return `假如一个人每秒数3个，你的年龄足够他数完${format(x.div(5.574e20))}个地球的水分子数`
+    if(x.lt(5.214e71)) return `假如一个人每秒数3个，你的年龄足够他数完${format(x.div(5.574e20))}个宇宙的水分子数`
     var y=x.div(4.605163).pow(3.321928).log10().floor()
     return `假如一个人每秒打开一次QwQ Random网站，你的年龄足够连续抛至少${format(y)}次抛硬币为正面的概率超过99%`
 }
