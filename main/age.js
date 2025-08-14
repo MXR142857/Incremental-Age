@@ -161,7 +161,7 @@ var crEff = {
     2: {
         need: n(3),
         effect() {
-            var x = player.age.add(1).log10().div(4).add(1)
+            var x = max(player.age,n(10)).log10().div(4).add(1)
             if (hasCrEff(12)) x = x.pow(getCrEffect(12))
             return x
         },
