@@ -27,7 +27,7 @@ var ab = {
             var x = player.age
             if (canBuyAB(this.id)) {
                 player.ab[this.id] = x.div(5).log(1.2).floor().add(1)
-                player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
+                if(x.lt("1e100")) player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
             }
         },
     },
@@ -46,7 +46,7 @@ var ab = {
             var x = player.age
             if (canBuyAB(this.id)) {
                 player.ab[this.id] = x.div(300).log(1.35).add(1).floor().add(1)
-                player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
+                if(x.lt("1e100")) player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
             }
         },
     },
@@ -65,7 +65,7 @@ var ab = {
             var x = player.age
             if (canBuyAB(this.id)) {
                 player.ab[this.id] = x.div(10800).log(2).mul(2).sqrt().floor().add(1)
-                player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
+                if(x.lt("1e100")) player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
             }
         },
     },
