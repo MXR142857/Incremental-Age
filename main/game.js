@@ -1,6 +1,7 @@
 
 function HTMLupdate() {
-    //tab
+    //news tab
+    e("news").style.display=player.set.news?"block":"none"
     e("tabbImc").style.display=player.unlocked.cul?"inline":"none"
     e("tabbAuto").style.display=player.unlocked.auto?"inline":"none"
     //
@@ -154,6 +155,7 @@ function gameloop() {
     if(!player.unlocked.cul&&hasAch(5)) player.unlocked.cul=true
     if(!player.unlocked.auto&&hasAch(7)) player.unlocked.auto=true
     if(!player.unlocked.reni&&hasCrEff(15)) player.unlocked.reni=true
+    //newss()
     HTMLupdate()
     save("IA")
 }

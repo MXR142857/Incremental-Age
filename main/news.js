@@ -201,3 +201,11 @@ async function initNews() {
 // 页面加载完成后初始化
 window.addEventListener('load', initNews);
 document.getElementById('newsContent').addEventListener('animationend', initNews);
+function newsChange(x){
+    if(x) player.set.news=!player.set.news
+    if(player.set.news){
+        e("setNews").innerHTML="滚动新闻：开"
+    }else{
+        e("setNews").innerHTML="滚动新闻：关"
+    }
+}

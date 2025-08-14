@@ -17,6 +17,7 @@ function loadAllData() {
     for(var i=1;i<=3;i++) loader(["rb",i],n(0))
     for(var i=1;i<=3;i++) loader(["autoAb",i],false)
     for (var i0 = 1; i0 <= 70; i0++) loader(["ach", i0], false)
+    loader(["set","news"],true)
 }
 loadAllData()
 var timer = Number(t.getTime())
@@ -54,7 +55,7 @@ function setup() {
     for (i in player.curTab) {
         changeTab(player.curTab[i])
     }
-    
+    newsChange(0)
     HTMLupdate()
 }
 

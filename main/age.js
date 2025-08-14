@@ -159,26 +159,30 @@ var crEff = {
         need: n(3),
         effect() {
             var x = player.age.add(1).log10().div(4).add(1)
-            if (hasCrEff(12)) x = x.div(getCrEffect(12)).add(1).pow(getCrEffect(12))
+            if (hasCrEff(12)) x = x.div(getCrEffect(12).sqrt()).add(1).pow(getCrEffect(12))
             return x
         },
         discription() { return "年龄提升自身获取量。当前：*" + format(this.effect()) },
     },
     3: {
         need: n(4),
-        effect() {
-            var b = n(2)
+        base(){
+            var b=n(2)
             if (hasCrEff(10)) b = b.add(getCrEffect(10))
+            return b
+        },
+        effect() {
+            var b = this.base()
             return max(b.pow(player.cr.sub(3)), n(1))
         },
-        discription() { return "从练气四层开始，每提升一层境界，年龄获取*2。当前：*" + format(this.effect()) },
+        discription() { return "从练气四层开始，每提升一层境界，年龄获取*"+format(this.base())+"。当前：*" + format(this.effect()) },
     },
     4: {
         need: n(5),
         effect() {
-            x = player.crTime.div(50)
+            x = player.crTime.div(10)
             if (hasCrEff(6)) x = x.mul(2)
-            return x.add(1)
+            return x.root(2).add(1)
         },
         discription() { return "基于境界提升后的时间，提高助推器基础效果。当前：*" + format(this.effect()) },
     },
@@ -216,7 +220,7 @@ var crEff = {
     12: {
         need: n(16),
         effect() { return n(1).add(n(0.5).mul(max(player.cr.sub(10), n(0))).pow(0.8)) },
-        discription() { return "基于境界，练气二层奖励先除以x，再变为x次方。当前：" + format(this.effect()) },
+        discription() { return "基于境界，练气三层奖励先除以根号x，再变为x次方。当前：" + format(this.effect()) },
     },
     13: {
         need: n(18),
@@ -249,7 +253,7 @@ var crEff = {
     },
     19: {
         need: n(31),
-        discription() { return "提高轮回力量的效果指数"},
+        discription() { return "稍微轮回力量的获取公式"},
     },
 }
 function getCrEffect(x) {
@@ -297,13 +301,14 @@ function getRPGain() {
     return n(0)
 }
 function getRPoPerSec() {
-    var x = player.RP.pow(getRbEffect(2)).div(90)
+    var x=player.RP.pow(1.5).div(100)
+    if(hasCrEff(19)) x = player.RP.pow(1.5)
     if(hasCrEff(18)) x = x.mul(player.age.root(75))
     else x = x.mul(player.age.root(100))
     return x
 }
 function reniReset() {
-    if (player.age.lt(player.age.gte(uni.mul("1e50")))) return
+    if (player.age.lt(uni.mul("1e50"))) return
     player.RP = player.RP.add(getRPGain())
     player.RPo = n(0)
     player.age = n(0)
@@ -315,9 +320,8 @@ function reniReset() {
     player.cr = n(1)
 }
 function getRpoEffect() {
-    var x=player.RPo.div(3)
-    if(hasCrEff(19)) x=x.pow(2).add(1)
-    else  x=x.pow(1.6).add(1)
+    var x=player.RPo
+    x=x.pow(getRbEffect(2)).add(1)
     if(x.gte("1e30")) x=x.div("1e30").pow(0.75).mul("1e30")
     return x
 }
@@ -331,7 +335,7 @@ var rb = {
             var b = this.base()
             return b.pow(x)
         },
-        cost(x = getABLevel(this.id)) { return n(100).mul(n(10).pow(x)) },
+        cost(x = getABLevel(this.id)) { return n(100).mul(n(10).pow(x.add(10).pow(1.5).sub(31.6227766).div(4.86))) },
         buyMax() {
 
         },
@@ -339,7 +343,7 @@ var rb = {
     2: {
         id: 2,
         title: "金坷垃？",
-        discription() { return `轮回力量的产生指数变为${format(this.effect())}` },
+        discription() { return `轮回力量的效果指数变为${format(this.effect())}` },
         effect(x = getRbLevel(this.id)) {
             return n(2).add(x.pow(0.8).div(4))
         },
