@@ -81,7 +81,7 @@ var ach={
     13:{
         id:13,
         title:"大数入门？",
-        discription() { return "年龄达到1古戈尔。奖励：境界提升时间流速*2"},
+        discription() { return "年龄达到1古戈尔。奖励：境界提升层时间流速*2"},
         need(){ return player.age.gte(uni.mul("1e100"))},
     },
     14:{

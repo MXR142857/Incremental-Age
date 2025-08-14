@@ -256,7 +256,7 @@ var crEff = {
     },
     19: {
         need: n(31),
-        discription() { return "稍微轮回力量的获取公式"},
+        discription() { return "稍微增强轮回力量的获取公式"},
     },
 }
 function getCrEffect(x) {
