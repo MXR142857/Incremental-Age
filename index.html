@@ -8,16 +8,16 @@
     <script src="functions/others.js"></script>
     <script src="functions/format.js"></script>
     <script src="functions/save.js"></script>
+    <script src="main/news.js" defer></script>
 
     <script src="main/age.js" defer></script>
     <script src="main/game.js" defer></script>
     <script src="main/achievements.js" defer></script>
     <script src="main/buildStartData.js" defer></script>
-    <script src="main/news.js" defer></script>
 </head>
 
 <body style="background-color:rgb(80,80,80);">
-    <div class="news-container">
+    <div class="news-container" id="news">
         <div class="news-scroll-box">
             <div class="news-content" id="newsContent"></div>
         </div>
@@ -95,7 +95,9 @@
     </div>
     <div id="tabSet">
         <button class="button" id="hardReset" onclick="hardReset('IA')">硬重置</button>
-        <button class="button" id="hardReset" onclick="exportSave()">导出</button>
-        <button class="button" id="hardReset" onclick="importSave()">导入</button>
+        <button class="button" onclick="exportSave()">导出</button>
+        <button class="button" onclick="importSave()">导入</button>
+        <br>
+        <button class="button" id="setNews" onclick="newsChange(1)">滚动新闻：开</button>
     </div>
 </body>
