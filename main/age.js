@@ -27,6 +27,7 @@ var ab = {
             var x = player.age
             if (canBuyAB(this.id)) {
                 player.ab[this.id] = x.div(5).log(1.2).floor().add(1)
+                player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
             }
         },
     },
@@ -45,6 +46,7 @@ var ab = {
             var x = player.age
             if (canBuyAB(this.id)) {
                 player.ab[this.id] = x.div(300).log(1.35).add(1).floor().add(1)
+                player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
             }
         },
     },
@@ -63,6 +65,7 @@ var ab = {
             var x = player.age
             if (canBuyAB(this.id)) {
                 player.ab[this.id] = x.div(10800).log(2).mul(2).sqrt().floor().add(1)
+                player.age=player.age.sub(this.cost(getABLevel(this.id).sub(1)))
             }
         },
     },
@@ -159,7 +162,7 @@ var crEff = {
         need: n(3),
         effect() {
             var x = player.age.add(1).log10().div(4).add(1)
-            if (hasCrEff(12)) x = x.div(getCrEffect(12).sqrt()).add(1).pow(getCrEffect(12))
+            if (hasCrEff(12)) x = x.pow(getCrEffect(12))
             return x
         },
         discription() { return "年龄提升自身获取量。当前：*" + format(this.effect()) },
@@ -220,7 +223,7 @@ var crEff = {
     12: {
         need: n(16),
         effect() { return n(1).add(n(0.5).mul(max(player.cr.sub(10), n(0))).pow(0.8)) },
-        discription() { return "基于境界，练气三层奖励先除以根号x，再变为x次方。当前：" + format(this.effect()) },
+        discription() { return "基于境界，练气三层奖励变为之前的x次方。当前：" + format(this.effect()) },
     },
     13: {
         need: n(18),
@@ -335,7 +338,7 @@ var rb = {
             var b = this.base()
             return b.pow(x)
         },
-        cost(x = getABLevel(this.id)) { return n(100).mul(n(10).pow(x.add(10).pow(1.5).sub(31.6227766).div(4.86))) },
+        cost(x = getABLevel(this.id)) { return n(100).mul(n(10).pow(x.add(5).pow(1.5).sub(11.18033989).div(3.5166))) },
         buyMax() {
 
         },
